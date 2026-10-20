@@ -68,6 +68,8 @@
     document.body.className = '';document.body.innerHTML=bundle.html;
     document.title = bundle.title;
     window.PORTAL_DATA = bundle.data;
+    window.PORTAL_SYNC = bundle.sync || null;
+    window.PORTAL_ASSETS = Object.freeze({url:imageURL});
     new MutationObserver(records => records.forEach(record => record.addedNodes.forEach(scan))).observe(document.body, {childList:true,subtree:true});
     document.body.addEventListener('click', async event => {
       const logout=event.target.closest('#staticLogout');
